@@ -52,13 +52,14 @@ function App() {
     balance += transaction.price;
   }
   balance = balance.toFixed(2);
-  const fraction = balance.split('.')[1];
-  balance=balance.split('.')[0];
+  const fraction = balance.split(".")[1];
+  balance = balance.split(".")[0];
 
   return (
     <main>
       <h1>
-        ${balance}<span>{fraction}</span>
+        ${balance}
+        <span>{fraction}</span>
       </h1>
       <form onSubmit={addNewTransaction}>
         <div className="basic">
@@ -93,8 +94,13 @@ function App() {
                 <div className="description">{transaction.description}</div>
               </div>
               <div className="right">
-              
-                <div className={"price" +(transaction.price<0?'red':'green')}>{transaction.price}</div>
+                <div
+                  className={
+                    "price" + (transaction.price < 0 ? "red" : "green")
+                  }
+                >
+                  {transaction.price}
+                </div>
                 <div className="datetime">24-12-18 15:45</div>
               </div>
             </div>
